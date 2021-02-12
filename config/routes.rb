@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root 'homes#index'
+  
+  resources :homes, only: [:index, :about]
+  get '/home/about' => 'homes#about'
+  # ？？？？？？？？？？？？？？？？？？？？？？？？？？
+  
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :books, only: [:new, :create, :index, :show, :destroy, :edit]
+
 end
+
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
