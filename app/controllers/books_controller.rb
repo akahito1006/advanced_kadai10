@@ -6,13 +6,19 @@ class BooksController < ApplicationController
   
   
   def create
-  
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    if @book.save
+      redirect_to users_path
+    else
+      render :new
+    end
   end
   
   
-  def index
+  # def index
   
-  end
+  # end
   
   
   def show
@@ -29,5 +35,11 @@ class BooksController < ApplicationController
   
   end
   
+  
+  private
+  
+  def book_params
+    params.require(:book).permit(:title, :body)
+  end
   
 end
