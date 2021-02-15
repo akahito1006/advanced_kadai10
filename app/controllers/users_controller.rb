@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
+  
+  
   def index
     @users = User.all
+    @user = current_user
+    # p "-----------------------"
+    # p @user
+    # current_user.idは、idだけを渡しなさい、という意味になる。全部を渡すには.idをつけないで使う。
   end
 
   def show
