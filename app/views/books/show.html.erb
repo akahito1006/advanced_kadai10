@@ -29,7 +29,9 @@
                 <%= link_to "Edit", edit_book_path, class: 'btn btn-sm btn-success' %>
               </td>
               <td>
-                <%= link_to "Destroy", book_path, method: :delete, class: 'btn btn-sm btn-danger' %>
+                <%= link_to "Destroy", book_path, method: :delete, class: 'btn btn-sm btn-danger', "data-confirm" => "本当に削除しますか？" %>
+                <!--・お手本では、投稿を削除する際に、ダイアログが出るように設定されています。-->
+                <!--削除時に確認のダイアログが出ることで、誤った削除を防止することができるので、機能を追加してみましょう。-->
               </td>
               <% end %>
               <!---------------------------------->

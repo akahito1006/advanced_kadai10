@@ -23,10 +23,17 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @books = Book.all
+    # @books = Book.all
     @booknew = Book.new
-    @user = current_user
+    # @user = current_user
   end
+
+  # ----------feedback below----------
+
+  # ・コントローラ内に不要なコードがあります。booksコントローラのshowアクションで、
+  # @books = Book.allという記述がありますが、showアクションは本の詳細画面に渡す変数を定義すれば良いので、
+  # この変数は不要です。
+  #PS: @userも不要。show画面で使われていない引数。@book.user.idで紐づけたデータが呼び出されている
 
 
   def destroy

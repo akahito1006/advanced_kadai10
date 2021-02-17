@@ -19,17 +19,25 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # 先に代入する
     if @user == current_user
+    # 代入した@userが、current_userならば、
       render "edit"
+      # editを出す
     else
       redirect_to user_path(current_user.id)
+      # 違う場合は、current_userのidでuser_path;editを出す
     end
   end
 
 
-  def new
-    @user = User.new
-  end
+  # def new
+  #   @user = User.new
+  # end
+
+  # ----------feedback below----------
+  
+    # usersコントローラに関して、newアクションは今回使用していないので不要です。
 
 
   def update
