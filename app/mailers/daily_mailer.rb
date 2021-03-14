@@ -1,7 +1,7 @@
 class DailyMailer < ApplicationMailer
   default from: ENV["MAIL_G"] + "@gmail.com"
 
-  def send_confirm_to_user(user)
+  def daily_information(user)
     p "きてます"
     p "---------------------"
     p "〇送り先" + user.email

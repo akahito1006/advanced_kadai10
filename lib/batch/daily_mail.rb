@@ -1,4 +1,5 @@
 class Batch::DailyMail
+  
   def self.daily_mail
     # 投稿を全て削除
     # Book.delete_all
@@ -6,7 +7,7 @@ class Batch::DailyMail
     
     @users = User.all
     @users.each do |user|
-     DailyMailer.send_confirm_to_user(user).deliver
+     DailyMailer.daily_information(user).deliver
     end
   end
 end
